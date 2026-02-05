@@ -54,6 +54,7 @@ class _GetListApiState extends State<GetListApi> {
         setState(() {
           postList = jsonDecode(response.body);
         });
+
       } else {
         print("API blocked or error");
       }
