@@ -1,4 +1,5 @@
 
+import 'package:demo/post_api_screen.dart';
 import 'package:demo/prime_number_check.dart';
 import 'package:demo/todo_screen.dart';
 import 'package:flutter/material.dart';
@@ -36,9 +37,9 @@ class ApiScreens extends StatelessWidget {
             ),
             const SizedBox(height: 25),
             _menuButton(
-              title: "Api Check",
+              title: "Post api",
               gradient: const [Colors.purple, Colors.blue],
-              onTap: () => Get.to(const SingleApiScreen()),
+              onTap: () => Get.to(const PostApiScreen()),
             ),
           ],
         ),
