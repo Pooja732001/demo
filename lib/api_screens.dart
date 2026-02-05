@@ -5,17 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'SingleApiScreen.dart';
-import 'api_screens.dart';
+import 'get_list_api.dart';
 
-class OpenScreenByName extends StatelessWidget {
-  const OpenScreenByName({super.key});
+class ApiScreens extends StatelessWidget {
+  const ApiScreens({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffF5F7FA),
       appBar: AppBar(
-        title: const Text("Demo Screens"),
+        title: const Text("Demo Api"),
         centerTitle: true,
         backgroundColor: Colors.blue,
         elevation: 0,
@@ -25,24 +25,20 @@ class OpenScreenByName extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             _menuButton(
-              title: "Todo App",
-              icon: Icons.check_circle_outline,
-              gradient: const [Colors.blue, Colors.lightBlueAccent],
-              onTap: () => Get.to(const TodoScreen()),
+              gradient: const [Colors.blue, Colors.purple],
+              onTap: () => Get.to(const SingleApiScreen()), title: 'Api single',
             ),
             const SizedBox(height: 25),
             _menuButton(
-              title: "Prime Number Check",
-              icon: Icons.calculate_outlined,
+              title: "Api List",
               gradient: const [Colors.purple, Colors.deepPurpleAccent],
-              onTap: () => Get.to(const PrimeCheckScreen()),
+              onTap: () => Get.to(const GetListApi()),
             ),
             const SizedBox(height: 25),
             _menuButton(
               title: "Api Check",
-              icon: Icons.check_circle_outline,
               gradient: const [Colors.purple, Colors.blue],
-              onTap: () => Get.to(const ApiScreens()),
+              onTap: () => Get.to(const SingleApiScreen()),
             ),
           ],
         ),
@@ -52,7 +48,6 @@ class OpenScreenByName extends StatelessWidget {
 
   Widget _menuButton({
     required String title,
-    required IconData icon,
     required List<Color> gradient,
     required VoidCallback onTap,
   }) {
@@ -77,21 +72,14 @@ class OpenScreenByName extends StatelessWidget {
             )
           ],
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, color: Colors.white, size: 26),
-            const SizedBox(width: 12),
-            Text(
-              title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
-        ),
+        child: Center(child:    Text(
+          title,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
+        ),)
       ),
     );
   }
